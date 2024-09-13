@@ -10,27 +10,31 @@ function displayMenuItems(menu) {
     // Get the menu container element from the HTML
         let codeMenu = document.getElementById('menu');
     // Loop through each category and its items in the menu object
-        
+        for (let category in menu) { 
         // Create an element to represent the category
-
+            let categoryElement = document.createElement('h3'); // CREATES AN H3 IN THE DOM
         // Set the text content of the category element to the category name
-
+            categoryElement.textContent = category;        
         // Append the category element to the menu container
-
+            codeMenu.appendChild(categoryElement);
         // Create an element to represent a list of items
-
+            let itemList = document.createElement('ul'); // CREATES AN UNORDERED LIST
         // Append a list of items element to the menu container
-
+            itemList.appendChild(itemList);
         // Loop through the items in the category and create list items
-
+            menu[category].forEach(item => {
             // Create a list item element
-
+                let listItem = document.createElement('li'); //  CREATES THE ITEMS IN THE LIST
             // Set the text content of the list item element to the item name
-
+                listItem.textContent = item;
             // Attach a click event listener to the list item to add it to the order
-
+                listItem.addEventListener('click', function() { 
+                    addToOrder(item);
+                })
+        })
             // Append the list item to the list of items
-
+            codeMenu.appendChild(itemList);
+    }
             
 }
 
